@@ -18,8 +18,12 @@
    ```bash
    npm install
    ```
-4. Создайте фыйл .env, добавьте "PORT = номер" и
-   DATABASE_URL="postgresql://postgres:{password}@localhost:{PORT}/{название базы}?schema=public"
+4. Добавьте порт и базу данных:
+   ```bash
+      touch .env
+      echo "PORT = {номер}" > .env
+      echo "DATABASE_URL="postgresql://postgres:{password}@localhost:{PORT}/{название базы}?schema=public"" >> .env
+   ```
 
 ## Использование
 
