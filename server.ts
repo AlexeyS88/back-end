@@ -3,6 +3,7 @@ import { twitRouter } from "./src/twit/twit.controller";
 import dotenv from "dotenv";
 import path from "path";
 import { PrismaClient } from "@prisma/client";
+import { logger } from "./src/utils/log";
 
 dotenv.config();
 const port = process.env.PORT || 3000;
@@ -37,12 +38,12 @@ async function main() {
   });
 
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    console.error(err.stack);
+    logger.error(err.stack);
     res.status(500).json({ message: "Something broke!" });
   });
 
   app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+    logger.info(`Server started on port ${port}`);
   });
 }
 
@@ -51,7 +52,7 @@ main()
     await prisma.$connect();
   })
   .catch(async (e) => {
-    console.error(e);
+    logger.error(e);
     await prisma.$disconnect();
     process.exit(1);
   });
