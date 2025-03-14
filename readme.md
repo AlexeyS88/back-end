@@ -22,7 +22,7 @@
    ```bash
       touch .env
       echo "PORT = {номер}" > .env
-      echo "DATABASE_URL="postgresql://postgres:{password}@localhost:{PORT}/{название базы}?schema=public"" >> .env
+      echo "DATABASE_URL="postgresql://postgres:{password}@localhost:{PORT}/{название базы}?schema=public" >> .env
    ```
 
 ## Использование
